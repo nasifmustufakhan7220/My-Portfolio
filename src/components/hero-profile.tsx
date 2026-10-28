@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { usePortfolioTheme } from "@/components/theme-provider";
+
 import {
   MapPin,
   Briefcase,
@@ -19,7 +20,8 @@ import { toast } from "@/components/ui/toast";
 export function HeroProfile() {
   const { profile } = portfolioData;
   const { theme } = usePortfolioTheme();
-  const iconColor = theme === "gradient-primary" ? "#878787" : "#7413eb";
+  const isPlum = theme === "gradient-primary";
+  const iconColor = "#ffffff";
 
   const RESUME_URL =
     "https://drive.google.com/file/d/1A8eW4Q7f6jSlSffqkteCnBobcW8ijnxT/view?usp=sharing";
@@ -76,18 +78,26 @@ export function HeroProfile() {
                 el?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <Mail className="size-4 mr-1.5" />
+              <div className="size-5 rounded-full bg-[#3e1f59] flex items-center justify-center mr-1.5 shrink-0">
+                <Mail className="size-3" style={{ color: iconColor }} />
+              </div>
               Get in Touch
             </Button>
             <Button
-              variant="outline"
-              className="rounded-full font-semibold hover:bg-secondary transition-all"
+              variant={isPlum ? "default" : "outline"}
+              className={`rounded-full font-semibold transition-all ${
+                isPlum
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "hover:bg-secondary"
+              }`}
               onClick={() => {
                 const el = document.getElementById("projects");
                 el?.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              <ExternalLink className="size-4 mr-1.5" style={{ color: iconColor }} />
+              <div className="size-5 rounded-full bg-[#3e1f59] flex items-center justify-center mr-1.5 shrink-0">
+                <ExternalLink className="size-3" style={{ color: iconColor }} />
+              </div>
               View Projects
             </Button>
             <Button
@@ -97,7 +107,9 @@ export function HeroProfile() {
               title="Download Resume"
               onClick={handleDownloadClick}
             >
-              <Download className="size-4" style={{ color: iconColor }} />
+              <div className="size-6 rounded-full bg-[#3e1f59] flex items-center justify-center shrink-0">
+                <Download className="size-3.5" style={{ color: iconColor }} />
+              </div>
             </Button>
           </div>
         </div>
@@ -122,11 +134,15 @@ export function HeroProfile() {
 
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm text-muted-foreground pt-1">
             <span className="flex items-center gap-1.5">
-              <Briefcase className="size-3.5" style={{ color: iconColor }} />
+              <div className="size-5 rounded-full bg-[#3e1f59] flex items-center justify-center shrink-0">
+                <Briefcase className="size-3" style={{ color: iconColor }} />
+              </div>
               <span>{profile.company}</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <MapPin className="size-3.5" style={{ color: iconColor }} />
+              <div className="size-5 rounded-full bg-[#3e1f59] flex items-center justify-center shrink-0">
+                <MapPin className="size-3" style={{ color: iconColor }} />
+              </div>
               <span>{profile.location}</span>
             </span>
           </div>

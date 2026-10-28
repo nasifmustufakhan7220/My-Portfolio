@@ -27,6 +27,10 @@ export interface ProjectItem {
   title: string;
   tagline: string;
   description: string;
+  longDescription?: string;
+  features?: string[];
+  architecture?: string[];
+  metrics?: { label: string; value: string }[];
   image?: string;
   technologies: string[];
   liveUrl?: string;
@@ -105,73 +109,53 @@ export const portfolioData = {
   projects: [
     {
       id: "proj-1",
-      title: "PulseFlow - Modern Workspace & Team Collaboration SaaS",
-      tagline: "Real-time task synchronization, analytics dashboard, and workspace management.",
+      title: "Bazar Dor",
+      tagline: "Real-time price checking and market price monitoring based on differnt location's market prices.",
       description:
-        "A full-fledged collaborative workspace platform featuring real-time document collaboration, Kanban workflows, responsive dark/light mode, and role-based access control.",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Socket.io"],
-      liveUrl: "https://example.com/pulseflow",
-      githubUrl: "https://github.com/example/pulseflow",
-      stars: 124,
+        "Bazar Dor is a real-time price monitoring and market analytics web application that tracks commodity prices across diverse regional markets, helping consumers and vendors compare fair prices.",
+      longDescription:
+        "Bazar Dor was engineered to bring market transparency to daily commodity and groceries pricing. Users can compare fluctuating prices across different local bazaars and supermarkets, analyze price trends, view verified community price contributions, and make informed purchasing decisions with up-to-date data.",
+      features: [
+        "Real-time commodity price checking across multiple regional markets",
+        "Interactive price comparison cards and localized daily price indices",
+        "Secure user authentication and profile management powered by Better Auth",
+        "Crowdsourced price update pipeline with community moderation",
+        "Responsive, mobile-optimized interface with dark and light theme adaptability",
+      ],
+      architecture: [
+        "Next.js App Router with server components for blazing fast server-rendered price catalog",
+        "MongoDB with Mongoose schemas for flexible commodity indexing and regional categorizations",
+        "Better Auth integration for modern, session-based secure authentication workflows",
+        "Tailwind CSS with clean shadcn/ui primitives for accessible, high-performance UI",
+      ],
+      metrics: [
+        { label: "Price Update Frequency", value: "Real-time" },
+        { label: "Authentication", value: "Better Auth" },
+        { label: "Database", value: "MongoDB" },
+      ],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "React.js", "Better Auth"],
+      liveUrl: "https://bazar-dor-web-app-isix.vercel.app/",
+      githubUrl: "https://github.com/nasifmustufakhan7220/Bazar-Dor-Web-App",
+      stars: 1,
       featured: true,
     },
-    {
-      id: "proj-2",
-      title: "OmniCart - Headless E-Commerce Platform",
-      tagline: "Blazing-fast modern store with Stripe checkout and dynamic inventory.",
-      description:
-        "Engineered with Next.js App Router and server actions. Achieved 99+ Lighthouse performance score with ISR, edge caching, and seamless Stripe integration.",
-      technologies: ["Next.js", "React 19", "Tailwind CSS", "Stripe API", "Zustand"],
-      liveUrl: "https://example.com/omnicart",
-      githubUrl: "https://github.com/example/omnicart",
-      stars: 89,
-      featured: true,
-    },
-    {
-      id: "proj-3",
-      title: "AI Canvas Studio - Generative Design & Asset Builder",
-      tagline: "AI-assisted design studio with responsive canvas manipulation.",
-      description:
-        "An interactive canvas application using WebGL and AI prompt pipelines to generate high-fidelity vector assets, palettes, and design mockups for developers.",
-      technologies: ["TypeScript", "Canvas API", "Next.js", "Tailwind CSS", "shadcn/ui"],
-      liveUrl: "https://example.com/aicanvas",
-      githubUrl: "https://github.com/example/aicanvas",
-      stars: 215,
-      featured: true,
-    },
-    {
-      id: "proj-4",
-      title: "DevMetrics - Cloud Telemetry & Error Tracking",
-      tagline: "Lightweight APM and error aggregation dashboard for microservices.",
-      description:
-        "Interactive analytics charts using Recharts, live logging streams, alert routing, and custom webhook dispatchers for engineering teams.",
-      technologies: ["React", "Next.js", "Recharts", "Node.js", "Redis"],
-      liveUrl: "https://example.com/devmetrics",
-      githubUrl: "https://github.com/example/devmetrics",
-      stars: 76,
-      featured: false,
-    },
+
   ] as ProjectItem[],
   education: [
     {
       id: "edu-1",
-      school: "University of Engineering & Technology",
+      school: "World University of Bangaldesh",
       degree: "Bachelor of Science",
       fieldOfStudy: "Computer Science & Engineering",
-      period: "2018 - 2022",
-      grade: "First Class with Distinction",
-      activities: "ACM Programming Club President, Hackathon Lead Organizer",
-      logoText: "CSE",
-    },
-    {
-      id: "edu-2",
-      school: "National College",
-      degree: "Higher Secondary Certificate (HSC)",
-      fieldOfStudy: "Science",
-      period: "2016 - 2018",
-      grade: "GPA 5.0 / 5.0",
-      activities: "Science Olympiad Winner, Debate Club Vice Chair",
-      logoText: "NC",
+      period: "2025- 2026 (Running)",
+      grade: "3th SEMESTER(Ongoing)",
+      activities: "",
+      logoText: "WUB",
     },
   ] as EducationItem[],
 };
+
+export function getProjectById(id: string): ProjectItem | undefined {
+  return portfolioData.projects.find((p) => p.id === id);
+}
+

@@ -36,53 +36,53 @@
 }
 
 :root {
-  /* Default: Vibrant modern #8187ff gradient theme */
-  --theme-bg-gradient: linear-gradient(135deg, #6c72fa 0%, #8187ff 45%, #9b9fff 100%);
-  --theme-navbar-bg: rgba(255, 255, 255, 0.95);
-  --theme-navbar-border: rgba(129, 135, 255, 0.2);
-  --theme-icon: #878787;
-  --theme-icon-active: #8187ff;
-  --theme-card-bg: rgba(255, 255, 255, 0.94);
-  --theme-card-border: rgba(129, 135, 255, 0.25);
-  --theme-text-primary: #1e1e38;
-  --theme-text-secondary: #575775;
-  --theme-badge-bg: rgba(129, 135, 255, 0.15);
-  --theme-badge-text: #4d54d9;
+  /* Default: Deep modern #3e1f59 royal plum gradient theme */
+  --theme-bg-gradient: linear-gradient(135deg, #251034 0%, #3e1f59 48%, #57297c 100%);
+  --theme-navbar-bg: rgba(255, 255, 255, 0.96);
+  --theme-navbar-border: rgba(233, 228, 235, 0.25);
+  --theme-icon: #e9e4eb;
+  --theme-icon-active: #e9e4eb;
+  --theme-card-bg: rgba(255, 255, 255, 0.98);
+  --theme-card-border: rgba(62, 31, 89, 0.18);
+  --theme-text-primary: #1c1424;
+  --theme-text-secondary: #5f526b;
+  --theme-badge-bg: rgba(62, 31, 89, 0.12);
+  --theme-badge-text: #3e1f59;
   
-  --background: #8187ff;
-  --foreground: #1c1b2f;
+  --background: #3e1f59;
+  --foreground: #1c1424;
   --card: #ffffff;
-  --card-foreground: #1e1e38;
+  --card-foreground: #22152c;
   --popover: #ffffff;
-  --popover-foreground: #1e1e38;
-  --primary: #8187ff;
+  --popover-foreground: #22152c;
+  --primary: #522774;
   --primary-foreground: #ffffff;
-  --secondary: #eef0ff;
-  --secondary-foreground: #464cc4;
-  --muted: #f4f5fc;
-  --muted-foreground: #676785;
-  --accent: #f0f2ff;
-  --accent-foreground: #3d43b4;
+  --secondary: #f4ecf8;
+  --secondary-foreground: #3e1f59;
+  --muted: #f8f4fa;
+  --muted-foreground: #685775;
+  --accent: #f5edf9;
+  --accent-foreground: #3e1f59;
   --destructive: #ef4444;
-  --border: rgba(129, 135, 255, 0.25);
-  --input: rgba(129, 135, 255, 0.2);
-  --ring: #8187ff;
+  --border: rgba(62, 31, 89, 0.2);
+  --input: rgba(62, 31, 89, 0.16);
+  --ring: #522774;
   --radius: 0.625rem;
 }
 
 [data-theme="light-warm"] {
-  /* Toggled theme: #f4f2ee with #7413eb icon highlights */
-  --theme-bg-gradient: linear-gradient(180deg, #f4f2ee 0%, #ece9e2 100%);
+  /* Toggled theme: #f4f2ee warm cream with #e9e4eb icon highlights */
+  --theme-bg-gradient: linear-gradient(180deg, #f4f2ee 0%, #ece8e0 100%);
   --theme-navbar-bg: rgba(255, 255, 255, 0.98);
-  --theme-navbar-border: #e0ded9;
-  --theme-icon: #7413eb;
-  --theme-icon-active: #7413eb;
+  --theme-navbar-border: #dedbd4;
+  --theme-icon: #e9e4eb;
+  --theme-icon-active: #e9e4eb;
   --theme-card-bg: #ffffff;
   --theme-card-border: #dedbd4;
   --theme-text-primary: #191919;
   --theme-text-secondary: #5f5f5f;
-  --theme-badge-bg: rgba(116, 19, 235, 0.1);
-  --theme-badge-text: #7413eb;
+  --theme-badge-bg: rgba(62, 31, 89, 0.08);
+  --theme-badge-text: #3e1f59;
 
   --background: #f4f2ee;
   --foreground: #191919;
@@ -90,18 +90,18 @@
   --card-foreground: #191919;
   --popover: #ffffff;
   --popover-foreground: #191919;
-  --primary: #7413eb;
+  --primary: #3e1f59;
   --primary-foreground: #ffffff;
-  --secondary: #f0e6ff;
-  --secondary-foreground: #5a0ebc;
+  --secondary: #efece5;
+  --secondary-foreground: #3e1f59;
   --muted: #eae7e0;
   --muted-foreground: #6c6a65;
-  --accent: #f5f0ff;
-  --accent-foreground: #7413eb;
+  --accent: #f4f0e9;
+  --accent-foreground: #3e1f59;
   --destructive: #dc2626;
-  --border: #e3e0d8;
+  --border: #e2dfd7;
   --input: #dedbd4;
-  --ring: #7413eb;
+  --ring: #3e1f59;
 }
 
 @layer base {
@@ -118,4 +118,39 @@
     background-attachment: fixed;
     transition: background 0.3s ease, color 0.3s ease;
   }
+}
+
+/* ─────────────────────────────────────────────
+   Plum-theme overrides for project detail page
+   (applied via CSS attribute selector so the
+    server component doesn't need usePortfolioTheme)
+   ───────────────────────────────────────────── */
+[data-theme="gradient-primary"] .plum-solid-btn {
+  background-color: var(--primary) !important;
+  color: #ffffff !important;
+  border-color: var(--primary) !important;
+}
+[data-theme="gradient-primary"] .plum-solid-btn svg {
+  color: #ffffff !important;
+}
+[data-theme="gradient-primary"] .plum-solid-btn:hover {
+  background-color: color-mix(in srgb, var(--primary) 90%, transparent) !important;
+}
+
+[data-theme="gradient-primary"] .plum-ghost-text {
+  color: #ffffff !important;
+}
+[data-theme="gradient-primary"] .plum-ghost-text svg {
+  color: #ffffff !important;
+}
+
+/* Star icon → white in Plum theme (overrides amber fill) */
+[data-theme="gradient-primary"] .plum-star {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Feature / architecture check icons → #949494 in Plum theme */
+[data-theme="gradient-primary"] .plum-feature-icon {
+  color: #949494 !important;
 }

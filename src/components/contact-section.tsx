@@ -74,7 +74,7 @@ export function ContactSection() {
                 <div className="flex items-center gap-2.5">
                   <MessageSquare className="size-4 text-primary" style={{ color: iconColor }} />
                   <a
-                    href="nasifk7220@gmail.com"
+                    href="mailto:nasifk7220@gmail.com"
                     className="hover:underline font-medium text-foreground"
                   >
                     nasifk7220@gmail.com
@@ -87,10 +87,14 @@ export function ContactSection() {
                   href="https://www.linkedin.com/in/nasifkmustufakhan/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full h-8 px-4 rounded-full text-xs font-medium border border-border bg-background hover:bg-secondary text-foreground transition-colors"
+                  className={`inline-flex items-center justify-center gap-2 w-full h-8 px-4 rounded-full text-xs font-medium border transition-colors ${
+                    theme === "gradient-primary"
+                      ? "bg-primary border-primary text-white hover:bg-primary/90"
+                      : "border-border bg-background hover:bg-secondary text-foreground"
+                  }`}
                 >
                   <span>Connect on LinkedIn</span>
-                  <ExternalLink className="size-3" style={{ color: iconColor }} />
+                  <ExternalLink className="size-3" style={{ color: theme === "gradient-primary" ? "#ffffff" : iconColor }} />
                 </a>
               </div>
             </div>

@@ -15,7 +15,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 export function SidebarProfile() {
   const { profile } = portfolioData;
   const { theme } = usePortfolioTheme();
-  const iconColor = theme === "gradient-primary" ? "#878787" : "#7413eb";
+  const iconColor = theme === "gradient-primary" ? "#878787" : "#3e1f59";
 
   return (
     <aside className="space-y-4">
